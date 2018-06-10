@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<windows.h>
+#include<stdbool.h>
+#include<string.h>
+#include<unistd.h>
 
 void cpuMonitor();
 void gpuMonitor();
@@ -10,7 +12,7 @@ int choice = 0;
 
 int main() {
 	int quit = 0;
-	system("cls");
+	system("clear");
 	while(quit != 1) {
 		printf("[HELIX-ENGINE DEBUGGER]\n");
 		printf("1) Monitor App\n");
@@ -23,23 +25,23 @@ int main() {
 		while(fgetc(stdin) != '\n');
 		switch(choice) {
 			case '1':
-				system("cls");
+				system("clear");
 				appMonitor();
 				break;
 			case '2':
-				system("cls");
+				system("clear");
 				cpuMonitor();
 				break;
 			case '3':
-				system("cls");
+				system("clear");
 				gpuMonitor();
 				break;
 			case '4':
-				system("cls");
+				system("clear");
 				quit = 1;
 				break;
 			default:
-				system("cls");
+				system("clear");
 				break;
 		}
 	}
@@ -60,7 +62,7 @@ void cpuMonitor() {
 	choice = fgetc(stdin);
 
 	while(true) {
-		system("cls");
+		system("clear");
 		printf("[HELIX-ENGINE CPU MONITOR]\n\n");
 		printf("GOVERNOR: ");
 		system("adb shell cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor");
@@ -88,7 +90,7 @@ void cpuMonitor() {
 				break;
 		}
 
-		Sleep(5000);
+		sleep(5);
 	}
 }
 
@@ -121,7 +123,7 @@ void gpuMonitor() {
 	}
 
 	while(true) {
-		system("cls");
+		system("clear");
 		printf("[HELIX-ENGINE GPU MONITOR]\n\n");
 
 		printf("GPU MAX: ");
@@ -132,6 +134,6 @@ void gpuMonitor() {
 		snprintf(buffer, sizeof(buffer), "adb shell su -c cat %s/min_freq", path);
 		system(buffer);
 
-		Sleep(5000);
+		sleep(5);
 	}
 }
