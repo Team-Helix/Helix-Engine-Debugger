@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<windows.h>
+#include<stdbool.h>
+#include<string.h>
+#include<unistd.h>
 
 void cpuMonitor();
 void gpuMonitor();
@@ -88,7 +90,7 @@ void cpuMonitor() {
 				break;
 		}
 
-		Sleep(5000);
+		sleep(5);
 	}
 }
 
@@ -132,6 +134,6 @@ void gpuMonitor() {
 		snprintf(buffer, sizeof(buffer), "adb shell su -c cat %s/min_freq", path);
 		system(buffer);
 
-		Sleep(5000);
+		sleep(5);
 	}
 }
