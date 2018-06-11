@@ -74,9 +74,9 @@ void cpuMonitor() {
 		switch(choice) {
 			case '1':
 				printf("CPU4 MAX: ");
-				system("adb shell cat /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq");
+				system("adb shell cat /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq");
 				printf("CPU4 MIN: ");
-				system("adb shell cat /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq");
+				system("adb shell cat /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq");
 				break;
 			case '2':
 				printf("CPU2 MAX: ");
